@@ -1,0 +1,31 @@
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filters select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+.filters select:focus {
+    border-color: #007BFF;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .filters {
+        margin: 10px 0;
+    }
+
+    .filters select {
+        width: 100%;
+        max-width: 300px; /* Adjust this value as needed */
+    }
+}
