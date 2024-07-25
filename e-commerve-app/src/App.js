@@ -7,25 +7,26 @@ import About from "./components/About";
 import ErrorComponent from "./components/ErrorComponent";
 import ProductDetails from "./components/ProductDetails";
 import FilteredProductsPerCategory from "./components/FilteredProductsPerCategory";
+import FiltersButtons from "./components/FiltersButtons";
 
 function App() {
-	return (
-		<div className='App'>
-			<Navbar />
-			<Routes>
-				<Route path="/" element={
-					<>
-						<Slider />
-						<ProductsList />
-					</>
-				} />
-				<Route path="/about" element={<About />} />
-				<Route path="products/:productId" element={<ProductDetails />} />
-				<Route path="products/category/:categoryName" element={<FilteredProductsPerCategory />} />
-				<Route path="*" element={<ErrorComponent />} />
-			</Routes>
-		</div>
-	);
+  return (
+    <div className="App">
+      <Navbar />
+      <Slider />
+      <FiltersButtons />
+      <Routes>
+        <Route path="/" element={<ProductsList />} />
+        <Route path="/about" element={<About />} />
+        <Route path="products/:productId" element={<ProductDetails />} />
+        <Route
+          path="products/category/:categoryName"
+          element={<FilteredProductsPerCategory />}
+        />
+        <Route path="*" element={<ErrorComponent />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

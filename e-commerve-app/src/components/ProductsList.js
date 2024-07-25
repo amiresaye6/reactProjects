@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import LottieAnimation1 from "../animations/LottieAnimation1";
-import FiltersButtons from "./FiltersButtons";
 
 function ProductsList() {
   const backendUrl = "https://fakestoreapi.com/products";
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
 
   const getProducts = () => {
     fetch(backendUrl)
@@ -14,20 +12,12 @@ function ProductsList() {
       .then(data => setProducts(data))
   }
 
-  const getProductsCategories = () => {
-    fetch(`${backendUrl}/categories`)
-      .then(response => response.json())
-      .then(data => setCategories(data))
-  }
-
   useEffect(() => {
     getProducts();
-    getProductsCategories();
   }, []);
 
   return (
     <>
-      <FiltersButtons categoriesList={categories} bId="l"/>
       <div className="container">
         {products.length === 0 ? (
           <LottieAnimation1 />
