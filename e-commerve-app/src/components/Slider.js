@@ -1,6 +1,6 @@
-import Image1 from './images/wallpaperflare.com_wallpaper (79).jpg';
-import Image2 from './images/wallpaperflare.com_wallpaper (80).jpg';
-import Image3 from './images/wallpaperflare.com_wallpaper (81).jpg';
+const Image1 = 'https://www.shutterstock.com/shutterstock/photos/2425212375/display_1500/stock-photo-bogor-indonesia-february-th-a-supermarket-aisle-with-shelves-of-merchandise-2425212375.jpg';
+const Image2 = 'https://www.shutterstock.com/shutterstock/photos/2425212375/display_1500/stock-photo-bogor-indonesia-february-th-a-supermarket-aisle-with-shelves-of-merchandise-2425212375.jpg';
+const Image3 = 'https://www.shutterstock.com/shutterstock/photos/2425212375/display_1500/stock-photo-bogor-indonesia-february-th-a-supermarket-aisle-with-shelves-of-merchandise-2425212375.jpg';
 
 function Slider() {
     return (
