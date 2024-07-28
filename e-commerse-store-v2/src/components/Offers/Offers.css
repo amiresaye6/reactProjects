@@ -35,4 +35,11 @@
     font-weight: 500;
     margin-top: 20px;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.offers_left button:hover {
+    background-color: rgb(252, 113, 89);
+}
+.offers_right img {
+    height: 100%;
 }
