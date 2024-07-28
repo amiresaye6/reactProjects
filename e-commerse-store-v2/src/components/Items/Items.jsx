@@ -1,6 +1,7 @@
 import './Items.css';
 
 const Items = (props) => {
+    // eslint-disable-next-line react/prop-types
     const { name, newPrice, oldprice, image } = props;
     return (
         <>
