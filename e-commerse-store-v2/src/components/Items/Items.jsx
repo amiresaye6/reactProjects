@@ -9,8 +9,8 @@ const Items = (props) => {
                 <img src={image} alt="not found" />
                 <h2>{name}</h2>
                 <div className='item_price'>
-                    <div className='new_price'>{newPrice}</div>
-                    <div className='old_price'>{oldprice}</div>
+                    <div className='new_price'>{newPrice}$</div>
+                    <div className='old_price'>{oldprice}$</div>
                 </div>
             </div>
         </>
