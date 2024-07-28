@@ -1,13 +1,13 @@
-import new_collections from '../Assets/new_collections';
+/* eslint-disable react/prop-types */
 import Items from "../Items/Items";
 import './NewCollection.css';
-const NewCollection = () => {
+const NewCollection = (props) => {
   return (
-    <div className='newCollection'>
-      <h1>New Collection</h1>
-      <div className='newCollection_items'>
+    <div className='Collection'>
+      <h1>{props.title}</h1>
+      <div className='Collection_items'>
       {
-        new_collections.map((item) => {
+        props.collections.map((item) => {
           return (
             <Items key={item.id} name={item.name} newPrice={item.new_price} oldprice={item.old_price} image={item.image} />
           );
