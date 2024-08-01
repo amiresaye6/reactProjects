@@ -1,0 +1,145 @@
+body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* line-height: 1.5; */
+    /* font-weight: 400; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px -2px black;
+    padding: 10px 0;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: #626262;
+}
+
+.navbar__container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar__logo p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #171717;
+}
+
+.navbar__logo img {
+    width: 50px;
+    height: auto;
+}
+
+.navbar__menu,
+.navbar_login_cart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar__menu a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.navbar__menu a hr {
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: tomato;
+    border: none;
+}
+.navbar__menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: tomato;
+    transition: width 0.3s;
+}
+
+.navbar__menu a:hover::after {
+    width: 100%;
+}
+
+.navbar__login {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #7a7a7a;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar__login:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar__container {
+        flex-direction: column;
+    }
+
+    .navbar__menu,
+    .navbar_login_cart {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .navbar__logo p {
+        font-size: 20px;
+    }
+
+    .navbar__login {
+        width: 100px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar__logo img {
+        width: 40px;
+    }
+
+    .navbar__logo p {
+        font-size: 18px;
+    }
+
+    .navbar__login {
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
