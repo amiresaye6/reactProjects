@@ -1,0 +1,8 @@
+.login form {
+    flex-direction: column;
+    padding: 20px;
+}
+
+.submit-btn {
+    margin-top: 25px;
+}

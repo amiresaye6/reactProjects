@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import './login.css'; // Import custom styles
+import './login.css';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = event => {
-    event.preventDefault(); // fixed typo here
+    event.preventDefault();
     fetch('http://localhost:1234/login', {
       method: 'POST',
       headers: {
@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <div className='container vh-100 d-flex justify-content-center align-items-center'>
-      <form onSubmit={handleSubmit}> {/* changed onSuspend to onSubmit */}
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputUsername1">Username</label>
           <input type="text" className="form-control" id="exampleInputUsername1" placeholder="Enter username"
