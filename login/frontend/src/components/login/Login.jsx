@@ -4,16 +4,17 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import './login.css'; // Import custom styles
 
 function Login() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const handleSupmit = event => {
-    event.prevetDefault();
+
+  const handleSubmit = event => {
+    event.preventDefault(); // fixed typo here
     fetch('http://localhost:1234/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then(response => response.json())
       .then(data => {
@@ -22,15 +23,15 @@ function Login() {
       .catch((error) => {
         console.error('Error:', error);
       });
-  }
+  };
+
   return (
     <div className='container vh-100 d-flex justify-content-center align-items-center'>
-      <form onSuspend={handleSupmit}>
+      <form onSubmit={handleSubmit}> {/* changed onSuspend to onSubmit */}
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
-            onChange={e => setEmail(e.target.value)} />
-          <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+          <label htmlFor="exampleInputUsername1">Username</label>
+          <input type="text" className="form-control" id="exampleInputUsername1" placeholder="Enter username"
+            onChange={e => setUsername(e.target.value)} />
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
