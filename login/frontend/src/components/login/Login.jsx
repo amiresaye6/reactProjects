@@ -8,6 +8,20 @@ function Login() {
   const [password, setPassword] = useState('');
   const handleSupmit = event => {
     event.prevetDefault();
+    fetch('http://localhost:1234/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
   return (
     <div className='container vh-100 d-flex justify-content-center align-items-center'>
