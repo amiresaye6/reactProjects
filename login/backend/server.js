@@ -22,32 +22,62 @@ db.connect(err => {
     console.log('Connected to the database');
 });
 
+// Endpoint for testing
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.get('/login', (req, res) => {
+// Endpoint to fetch users (for testing purposes, if needed)
+app.get('/users', (req, res) => {
     const sql = `SELECT * FROM users`;
     db.query(sql, (err, data) => {
-        if (err) return res.json('Login failed');
+        if (err) return res.status(500).json('Failed to retrieve users');
         return res.json(data);
     });
 });
 
+// Endpoint for user login
 app.post('/login', (req, res) => {
     const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
     const values = [
-        req.body.username, // changed to req.body.username
+        req.body.username,
         req.body.password
     ];
 
     db.query(sql, values, (err, data) => {
-        if (err) return res.json('Login failed');
-        if (data.length === 0) return res.json('Invalid credentials');
+        if (err) return res.status(500).json('Login failed');
+        if (data.length === 0) return res.status(401).json('Invalid credentials');
         return res.json(data);
     });
 });
 
+// Endpoint for user signup
+app.post('/signup', (req, res) => {
+    const { username, password, email } = req.body;
+    
+    // Basic validation
+    if (!username || !password || !email) {
+        return res.status(400).json('All fields are required');
+    }
+    
+    // Check if the email already exists
+    const checkEmailSql = 'SELECT * FROM users WHERE email = ?';
+    db.query(checkEmailSql, [email], (err, results) => {
+        if (err) return res.status(500).json('Error checking email');
+
+        if (results.length > 0) {
+            return res.status(400).json('Email already exists');
+        }
+        
+        // Insert new user
+        const insertUserSql = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
+        db.query(insertUserSql, [username, password, email], (err, results) => {
+            if (err) return res.status(500).json('Error creating user');
+            return res.status(201).json('User created successfully');
+        });
+    });
+});
+
 app.listen(1234, () => {
-    console.log("listening on port 1234...");
+    console.log("Listening on port 1234...");
 });
