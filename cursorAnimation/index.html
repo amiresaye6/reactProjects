@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MOTION</title>
+    <style>
+        #amongus {
+            height: 40px;
+            width: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -99999999;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            /* Dark background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Card 1</h2>
+            <p>Some sample text for card 1.</p>
+        </div>
+        <div class="card">
+            <h2>Card 2</h2>
+            <p>Some sample text for card 2.</p>
+        </div>
+        <div class="card">
+            <h2>Card 3</h2>
+            <p>Some sample text for card 3.</p>
+        </div>
+        <div class="card">
+            <h2>Card 4</h2>
+            <p>Some sample text for card 4.</p>
+        </div>
+        <div class="card">
+            <h2>Card 5</h2>
+            <p>Some sample text for card 5.</p>
+        </div>
+        <div class="card">
+            <h2>Card 6</h2>
+            <p>Some sample text for card 6.</p>
+        </div>
+        <div class="card">
+            <h2>Card 7</h2>
+            <p>Some sample text for card 7.</p>
+        </div>
+        <div class="card">
+            <h2>Card 8</h2>
+            <p>Some sample text for card 8.</p>
+        </div>
+        <div class="card">
+            <h2>Card 9</h2>
+            <p>Some sample text for card 9.</p>
+        </div>
+    </div>
+
+
+    <img src="amongus.png" id="amongus" alt="hi">
+    <script>
+        const coords = {
+            x: 0,
+            y: 0
+        };
+        const amongUs = document.getElementById("amongus");
+
+        // Initial position
+        let currentX = 0;
+        let currentY = 0;
+
+        window.addEventListener("mousemove", (e) => {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
+
+        function animate() {
+            // Calculate the difference between the current position and the target position
+            let diffX = coords.x - currentX;
+            let diffY = coords.y - currentY;
+
+            // Apply easing factor
+            currentX += diffX * 0.1;
+            currentY += diffY * 0.1;
+
+            // Set the element's position
+            amongUs.style.left = (currentX - 12) + "px";
+            amongUs.style.top = (currentY - 12) + "px";
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+    </script>
+</body>
+
+</html>
