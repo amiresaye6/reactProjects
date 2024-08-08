@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProduct, fetchProducts } from '../store/actions/products_actions';
+import { addProduct, fetchProducts } from '../rtk/slices/productsSlice';
+// import { addProduct, fetchProducts } from '../store/actions/products_actions';
 
 function Products() {
   const data = useSelector(store => store.products);
@@ -8,7 +9,7 @@ function Products() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProducts())
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <h1>All Producst</h1>
