@@ -18,8 +18,6 @@ function App() {
   return (
 
     <div>
-
-
       <Navbar />
 
       <Routes>
@@ -31,9 +29,8 @@ function App() {
         <Route path=':productId' element={<Product />} />
         <Route path='cart' element={<Cart />} />
       </Routes>
+
       <Footer />
-
-
     </div>
   );
 }
